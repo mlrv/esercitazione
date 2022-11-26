@@ -9,6 +9,8 @@ public class Sistema implements SistemaI {
     // Utilizzo una linked list per contenere le figure. Tengo anche traccia
     // dell'ultimo nodo in modo da rendere più semplice l'implementazione di alcuni
     // metodi
+    // magari fai chiarezza su cosa intendi con primo e ultimo, c'e` un ordine di qualche tipo?
+    // primo e` la figura on top?
     private NodoF primo;
     private NodoF ultimo;
     private int numeroFigure;
@@ -33,6 +35,8 @@ public class Sistema implements SistemaI {
         return figure;
     }
 
+    // spostaSopra e spostaSotto sono *molto* simili, c'e` sicuramente
+    // la possibilita` di estrarre la logica in comune
     public void spostaSopra(FiguraI f) {
         if (primo.contenuto == f) {
             // Se la figura è già in cima non devo fare niente
@@ -84,6 +88,7 @@ public class Sistema implements SistemaI {
     public void elimina(FiguraI f) {
         // I casi in cui ci sia una sola figura o in cui la figura da eliminare sia la
         // prima vengono gestiti separatamente
+        // Perche`? Cosa guadagni a fare cosi`?
         if (numeroFigure == 1) {
             svuota();
             return;
@@ -138,6 +143,8 @@ public class Sistema implements SistemaI {
     // Questo metodo non è richiesto dall'interfaccia ma mi serve per caricare le
     // figure da file perchè se usassi aggiungiFigura che le aggiunge in cima
     // invertirei l'ordine delle figure
+    // C'e` sicuramente la possibilita` di astrarre le parti comuni di
+    // aggiungiFigura e aggiungiFiguraInFondo
     private void aggiungiFiguraInFondo(FiguraI figura) {
         NodoF nuovo = new NodoF(figura);
         if (numeroFigure == 0) {
@@ -162,6 +169,7 @@ public class Sistema implements SistemaI {
 
     public FiguraI aggiungiRettangolo(double x1, double y1, double x2, double y2) {
         double xB, yB, xA, yA;
+        // uuuuuugh
         if (x1 < x2) {
             xB = x1;
             xA = x2;
@@ -182,7 +190,7 @@ public class Sistema implements SistemaI {
     }
 
     public FiguraI aggiungiTriangolo(double x1, double x2, double yBase, double altezza) {
-        double x = x1 < x2 ? x1 : x2;
+        double x = Math.min(x1, x2);
         Triangolo triangolo = new Triangolo(new Punto(x, yBase), Math.abs(x1 - x2), altezza);
         aggiungiFigura(triangolo);
         return triangolo;
