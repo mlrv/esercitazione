@@ -1,6 +1,6 @@
 package esercitazioneJava2;
 
-// Classe Punto per rendere più semplie l'implementazione di alcuni metodi nelle figure
+// Classe Punto per rendere più semplice l'implementazione di alcuni metodi nelle figure
 public class Punto {
     /**
      * Coordinata x
@@ -30,7 +30,7 @@ public class Punto {
      * @return punto medio
      */
     static Punto puntoMedio(Punto p1, Punto p2) {
-        return new Punto((p1.x + p2.x)/2, (p1.y + p2.y)/2);
+        return new Punto((p1.x + p2.x) / 2, (p1.y + p2.y) / 2);
     }
 
     /**
@@ -51,6 +51,6 @@ public class Punto {
      * @return distanza
      */
     double distanza(Punto p) {
-        return Math.sqrt((x - p.x) * (x - p.x) + (y - p.y) * (y - p.y));
+        return Math.sqrt(Math.pow((x - p.x), 2) + Math.pow((y - p.y), 2));
     }
 }

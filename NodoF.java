@@ -11,6 +11,7 @@ public class NodoF {
     }
 
     // Stampa il contenuto di questo nodo e di tutti i segunenti tramite delegation
+    // Il nome non mi sembra un granche`, io forse rimmarei su toStringRecursive;
     public String stampaTutti() {
         String s = contenuto.toString();
         if (successivo != null) {
