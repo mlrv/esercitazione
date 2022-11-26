@@ -43,20 +43,33 @@ public class Rettangolo extends Figura implements FiguraI {
         // poichè bufferedReader (usato nel caricamento da file) non può cambiare
         // formato di lettura come può scanner
         NumberFormat nf = NumberFormat.getInstance();
-        return "RET " + nf.format(verticeBasso.x) + " " + nf.format(verticeBasso.y) + " " +
-                nf.format(verticeAlto.x) + " " + nf.format(verticeAlto.y) + " COL " +
-                colore.getRed() + " " + colore.getGreen() + " " + colore.getBlue();
+
+        String[] ss = new String[] {
+            "RET",
+            nf.format(verticeBasso.x),
+            nf.format(verticeBasso.y),
+            nf.format(verticeAlto.x),
+            nf.format(verticeAlto.y),
+            "COL",
+            colore.getRed(),
+            colore.getGreen(),
+            colore.getBlue(),
+        };
+
+        return String.join(" ", ss);
     }
 
     /**
      * Ritorna un rettangolo da una stringa in formato standard. il colore viene
-     * passata dopo che è già stato decodificato a monte dal metodo leggi nella
+     * passato dopo che è già stato decodificato a monte dal metodo leggi nella
      * classe Figura
      * 
      * @param s   stringa nel formato standard
      * @param col colore
      * @return rettangolo da stringa in formato standard
      */
+    // Il formato di `leggi` e` praticamente identico in tutte le figure,
+    // c'e` la possibilita` di astrarlo in Figura?
     static Rettangolo leggi(String s, Color col) throws Exception {
         Scanner sc = new Scanner(s);
         double vBx = sc.nextDouble();

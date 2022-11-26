@@ -47,13 +47,14 @@ public class Triangolo extends Figura implements FiguraI {
         // poichè bufferedReader (usato nel caricamento da file) non può cambiare
         // formato di lettura come può scanner
         NumberFormat nf = NumberFormat.getInstance();
+        // Puoi ottimizzare anche questo come in Rettangolo
         return "TRI " + nf.format(verticeSx.x) + " " + nf.format(verticeSx.y) + " " +
                 nf.format(base) + " " + nf.format(altezza) + " COL " + colore.getRed() +
                 " " + colore.getGreen() + " " + colore.getBlue();
     }
 
     /**
-     * Ritorna un rettangolo da una stringa in formato standard. il colore viene
+     * Ritorna un triangolo da una stringa in formato standard. il colore viene
      * passata dopo che è già stato decodificato a monte dal metodo leggi nella
      * classe Figura
      * 

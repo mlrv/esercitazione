@@ -45,6 +45,7 @@ public class Ellisse extends Figura implements FiguraI{
         // Il numberFormat è usato per scrivere i double con la virgola e non il punto,
         // poichè bufferedReader (usato nel caricamento da file) non può cambiare
         // formato di lettura come può scanner
+        // Puoi ottimizzare anche questo come in Rettangolo
         NumberFormat nf = NumberFormat.getInstance();
         return "ELL " + nf.format(centro.x) + " " + nf.format(centro.y) + " " +
                 nf.format(raggioX) + " " + nf.format(raggioY) + " COL " + colore.getRed() +
